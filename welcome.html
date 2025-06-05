@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<script>
+  (function(d, params){
+    var script = d.createElement('script');
+    script.setAttribute('src', 'https://cdn.candu.ai/sdk/latest/candu.umd.js?token=' + params.clientToken);
+    script.onload = function () {
+        Candu.init(params);
+    }
+    d.head.appendChild(script);
+  })(document, {
+    userId: '<YOUR_USER_ID>',
+    clientToken: 'PnpC6ampb0',
+   });
+</script>
+  
    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,20 +82,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
           
-  (function(d, params){
-    var script = d.createElement('script');
-    script.setAttribute('src', 'https://cdn.candu.ai/sdk/latest/candu.umd.js?token=' + params.clientToken);
-    script.onload = function () {
-        Candu.init(params);
-    }
-    d.head.appendChild(script);
-  })(document, {
-    userId: '<YOUR_USER_ID>',
-    clientToken: 'PnpC6ampb0',
-   });
-
-  
-           
+ 
 
             if (!loggedInUser) {
                 window.location.href = 'index.html';
